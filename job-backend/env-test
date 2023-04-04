@@ -1,0 +1,13 @@
+# Environment variables declared in this file are automatically made available to Prisma.
+# See the documentation for more detail: https://pris.ly/d/prisma-schema#accessing-environment-variables-from-the-schema
+
+# Prisma supports the native connection string format for PostgreSQL, MySQL, SQLite, SQL Server, MongoDB and CockroachDB.
+# See the documentation for all the connection string options: https://pris.ly/d/connection-strings
+
+
+APP_PORT=3000
+DATABASE_URL="mysql://root:@localhost:3306/job_db"
+JWT_ACCESS_TOKEN_SECRET=huiweyr782rjwerfwjfeurgrjnshjauiofghlaskfoawugrrkljafgblakshgoaufkawjhtq38o4y3fbjsaufyawf
+JWT_ACCESS_TOKEN_EXPIRED=1d
+JWT_REFRESH_TOKEN_SECRET=0oiej892r23rn234r7fhjbsltf78qfbqowf7t34fbwefbq9oewfjblszvcbnasofgo87342rji3gf3quo8gpjinqfvboq87fujabfawe8fg
+JWT_REFRESH_TOKEN_EXPIRED=2d

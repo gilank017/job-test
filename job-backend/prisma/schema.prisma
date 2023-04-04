@@ -15,11 +15,15 @@ model user {
   name      String
   email     String    @unique
   password  String
-  role      Role      @default(user)
-  createdAt DateTime  @default(now())
+  createdAt DateTime  @default(now()) @db.Date
 }
 
-enum Role {
-  user      @map("user")
-  admin     @map("admin")
+model jobs {
+  id            Int       @id @default(autoincrement())
+  name          String
+  description   String    @db.VarChar(255)
+  min_education String    @db.VarChar(50)
+  created_date  DateTime  @default(now()) @db.Date
+  expired_date  DateTime  @db.Date
+  quota         Int       @default(0)
 }
