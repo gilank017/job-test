@@ -12,7 +12,24 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { 
+        rel: 'icon', 
+        type: 'image/x-icon', 
+        href: '/favicon.ico' 
+      },
+      { 
+        rel: 'stylesheet', 
+        type: 'text/css', 
+        href: '/css/bootstrap.min.css' 
+      }
+    ],
+    script: [
+      {
+        src: '/js/jquery.min.js',
+      },
+      {
+        src: '/js/bootstrap.bundle.min.js',
+      },
     ]
   },
 
@@ -29,20 +46,35 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-    // https://go.nuxtjs.dev/eslint
-    '@nuxtjs/eslint-module'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/proxy'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    baseURL: '/'
+    // baseURL: process.env.API_URL || 'http://localhost:8000',
+    // proxyHeaders: false,
+    // credentials: false
+    baseURL: '/',
+    proxy: true
+  },
+
+  proxy: {
+    '/api/': { target: 'http://localhost:8000', pathRewrite: {'^/api/': ''}, changeOrigin: true }
+  },
+
+  auth: {
+    redirect: {
+      login: '/login',
+      logout: '/login',
+      home: '/'
+    }
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

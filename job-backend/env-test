@@ -5,7 +5,7 @@
 # See the documentation for all the connection string options: https://pris.ly/d/connection-strings
 
 
-APP_PORT=3000
+APP_PORT=8000
 DATABASE_URL="mysql://root:@localhost:3306/job_db"
 JWT_ACCESS_TOKEN_SECRET=huiweyr782rjwerfwjfeurgrjnshjauiofghlaskfoawugrrkljafgblakshgoaufkawjhtq38o4y3fbjsaufyawf
 JWT_ACCESS_TOKEN_EXPIRED=1d
