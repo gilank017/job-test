@@ -2,8 +2,8 @@ export const state = () => ({
   user: {
     name: '',
     email: '',
-    token: '',
-    refresh_token: ''
+    token: null,
+    refresh_token: null
   }
 })
 
