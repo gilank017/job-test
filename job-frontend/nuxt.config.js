@@ -38,8 +38,7 @@ export default {
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-  ],
+  plugins: [],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -57,24 +56,13 @@ export default {
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-    // baseURL: process.env.API_URL || 'http://localhost:8000',
-    // proxyHeaders: false,
-    // credentials: false
     baseURL: '/',
-    proxy: true
+    proxy: true,
+    prefix: '/api/'
   },
 
   proxy: {
-    '/api/': { target: 'http://localhost:8000', pathRewrite: {'^/api/': ''}, changeOrigin: true }
-  },
-
-  auth: {
-    redirect: {
-      login: '/login',
-      logout: '/login',
-      home: '/'
-    }
+    '/api/': { target: process.env.API_URL }
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

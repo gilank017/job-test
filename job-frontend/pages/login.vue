@@ -35,11 +35,29 @@ export default {
   },
   methods: {
     async submitLogin() {
-      const response = await this.$axios.post('/login', this.loginForm)
+      const { status, data } = await this.$axios.post('/login', this.loginForm)
       .then((res) => {
         return res.data
       })
-      console.log(response)
+      if (status) {
+        
+      } else {
+        this.loginValidation = {
+          email: {
+            status: 'is-valid',
+            message: ''
+          },
+          password: {
+            status: 'is-valid',
+            message: ''
+          },
+        }
+        Object.entries(data).forEach((error) => {
+          this.loginValidation[error[0]].status =
+            error[1][0] !== undefined ? 'is-invalid' : 'is-valid'
+          this.loginValidation[error[0]].message = error[1][0]
+        })
+      }
     }
   }
 }

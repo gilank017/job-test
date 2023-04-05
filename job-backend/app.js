@@ -17,8 +17,8 @@ app.use(bodyParser.urlencoded({
   }
 }))
 
-app.use('/', require("./routes/Public"))
-app.use('/job', require("./routes/Job"))
+app.use('/api/', require("./routes/Public"))
+app.use('/api/job', require("./routes/Job"))
 
 app.use(function (req, res, next) {
   res.status(404).json({status: false, message: "Sorry, We don't know the endpoint target"})
