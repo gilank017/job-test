@@ -15,6 +15,9 @@
               div.invalid-feedback {{ loginValidation.password.message }}
             div.mt-3.text-right
               button.btn.btn-warning.text-white.waves-effect.waves-light.w-sm(@click="submitLogin()") Log In
+            div.mt-4.text-center
+              p.mb-0 Belum mempunyai akun ?&nbsp;
+                n-link(to="register" class="text-primary title") Daftar disini
 </template>
 <script>
 export default {
@@ -41,6 +44,15 @@ export default {
       })
       if (status) {
         this.$store.commit('saveCredential',data)
+        // eslint-disable-next-line
+        Swal.fire({
+          icon: 'success',
+          title: 'Success!',
+          showConfirmButton: false,
+          text: 'Anda Berhasil Login',
+          timer: 2000,
+          timerProgressBar: true,
+        })
         this.$router.push({
           path: '/jobs',
         })

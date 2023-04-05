@@ -21,7 +21,7 @@ export default {
         rel: 'stylesheet', 
         type: 'text/css', 
         href: '/css/bootstrap.min.css' 
-      }
+      },
     ],
     script: [
       {
@@ -29,6 +29,11 @@ export default {
       },
       {
         src: '/js/bootstrap.bundle.min.js',
+        defer: true
+      },
+      {
+        src: '/js/sweetalert2.min.js',
+        defer: true,
       },
     ]
   },
